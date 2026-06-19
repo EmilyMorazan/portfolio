@@ -8,6 +8,8 @@ import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 import { WebBadge } from "@/components/web-badge";
 import { BottomTabInset, MaxContentWidth, Spacing } from "@/constants/theme";
+import projects from "./projects";
+import AppTabs from "@/components/app-tabs";
 
 function getDevMenuHint() {
   if (Platform.OS === "web") {
