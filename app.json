@@ -40,5 +40,11 @@
       "typedRoutes": true,
       "reactCompiler": true
     }
+  },
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   }
 }
