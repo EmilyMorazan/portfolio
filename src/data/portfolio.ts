@@ -2,15 +2,15 @@ import { ImageSource } from "expo-image";
 
 export const profile = {
   name: "Emily",
-  title: "Computer Science Student at CSUN",
+  title: "Computer Science Student",
   tagline:
     "I build software that solves real problems — from network security tools to user-friendly mobile apps.",
   bio: "I'm a Computer Science student at California State University, Northridge, passionate about full-stack development, cybersecurity, and building tools that make technology more accessible.",
   email: "emily.morazan7@gmail.com",
   github: "https://github.com/EmilyMorazan",
   linkedin: "https://www.linkedin.com/in/emily-morazan-142bbb2a1/",
-  // resumeUrl: this might have to be fix",
-  resumeUrl: "https://github.com/EmilyMorazan/resume.pdf",
+  // Replace public/pinkResume.pdf anytime to update the download link.
+  resumeUrl: "/pinkResume.pdf",
   photo: require("@/assets/images/profile.png"),
 };
 
