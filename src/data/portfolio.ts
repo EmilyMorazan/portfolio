@@ -6,10 +6,12 @@ export const profile = {
   tagline:
     "I build software that solves real problems — from network security tools to user-friendly mobile apps.",
   bio: "I'm a Computer Science student at California State University, Northridge, passionate about full-stack development, cybersecurity, and building tools that make technology more accessible.",
-  email: "emily@example.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
-  resumeUrl: "https://github.com/yourusername/resume.pdf",
+  email: "emily.morazan7@gmail.com",
+  github: "https://github.com/EmilyMorazan",
+  linkedin: "https://www.linkedin.com/in/emily-morazan-142bbb2a1/",
+  // resumeUrl: this might have to be fix",
+  resumeUrl: "https://github.com/EmilyMorazan/resume.pdf",
+  photo: require("@/assets/images/profile.png"),
 };
 
 export const skills = [

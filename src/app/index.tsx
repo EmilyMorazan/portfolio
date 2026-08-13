@@ -22,7 +22,7 @@ export default function HomeScreen() {
             style={[styles.avatarRing, { borderColor: theme.backgroundSelected }]}
           />
           <Image
-            source={require("@/assets/images/icon.png")}
+            source={profile.photo}
             style={[styles.avatar, { borderColor: theme.backgroundElement }]}
             contentFit="cover"
           />
