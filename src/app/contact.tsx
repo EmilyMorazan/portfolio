@@ -9,8 +9,16 @@ import { profile } from "@/data/portfolio";
 
 const contactLinks = [
   { label: "Email", value: profile.email, href: `mailto:${profile.email}` },
-  { label: "GitHub", value: "github.com/yourusername", href: profile.github },
-  { label: "LinkedIn", value: "linkedin.com/in/yourusername", href: profile.linkedin },
+  {
+    label: "GitHub",
+    value: "https://github.com/EmilyMorazan",
+    href: profile.github,
+  },
+  {
+    label: "LinkedIn",
+    value: "https://www.linkedin.com/in/emily-morazan-142bbb2a1/",
+    href: profile.linkedin,
+  },
 ];
 
 export default function ContactScreen() {
@@ -18,7 +26,7 @@ export default function ContactScreen() {
     <ScreenLayout>
       <PageHeader
         title="Contact"
-        subtitle="Let's connect — I'd love to hear from you."
+        subtitle="Let's connect — I'd love to hear from you!"
       />
 
       {contactLinks.map((link) => (
