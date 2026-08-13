@@ -33,7 +33,8 @@ export default function AboutScreen() {
             <ThemedView
               key={skill}
               type="backgroundAccent"
-              style={[styles.tag, { borderColor: theme.border }]}>
+              style={[styles.tag, { borderColor: theme.border }]}
+            >
               <ThemedText type="code">{skill}</ThemedText>
             </ThemedView>
           ))}
@@ -45,7 +46,10 @@ export default function AboutScreen() {
           Education
         </ThemedText>
         <ThemedText type="smallBold">{education.school}</ThemedText>
-        <ThemedText type="small">{education.degree}</ThemedText>
+        <ThemedText type="small">{education.degree1}</ThemedText>
+        {/* just added */}
+        <ThemedText type="smallBold">{education.mostRecent}</ThemedText>
+        <ThemedText type="small">{education.degree2}</ThemedText>
         <ThemedText type="small" themeColor="textSecondary">
           {education.period}
         </ThemedText>

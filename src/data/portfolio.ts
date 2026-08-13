@@ -28,9 +28,11 @@ export const skills = [
 ];
 
 export const education = {
-  school: "California State University, Northridge",
-  degree: "B.S. in Computer Science",
-  period: "Expected 2026",
+  school: "California State University, Northridge (CSUN)",
+  degree1: "B.S. in Computer Science",
+  mostRecent: "University of California, Santa Barbara (UCSB)",
+  degree2: "M.S. in Computer Engineering",
+  period: "Expected 2028",
 };
 
 export type Project = {
