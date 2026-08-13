@@ -1,100 +1,139 @@
-import * as Device from "expo-device";
-import { Platform, StyleSheet } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Image } from "expo-image";
+import { Link } from "expo-router";
+import { Pressable, StyleSheet, View } from "react-native";
 
-import { AnimatedIcon } from "@/components/animated-icon";
-import { HintRow } from "@/components/hint-row";
+import { PinkCard } from "@/components/pink-card";
+import { ScreenLayout } from "@/components/screen-layout";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-import { WebBadge } from "@/components/web-badge";
-import { BottomTabInset, MaxContentWidth, Spacing } from "@/constants/theme";
-import projects from "./projects";
-import AppTabs from "@/components/app-tabs";
-
-function getDevMenuHint() {
-  if (Platform.OS === "web") {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === "android" ? "cmd+m (or ctrl+m)" : "cmd+d";
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+import { profile } from "@/data/portfolio";
+import { Radius, Spacing } from "@/constants/theme";
+import { useTheme } from "@/hooks/use-theme";
 
 export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+  const theme = useTheme();
 
-        <ThemedText type="code" style={styles.code}>
-          get started
+  return (
+    <ScreenLayout contentContainerStyle={styles.scrollContent}>
+      <PinkCard style={styles.heroCard}>
+        <View style={styles.avatarWrapper}>
+          <ThemedView
+            type="backgroundAccent"
+            style={[styles.avatarRing, { borderColor: theme.backgroundSelected }]}
+          />
+          <Image
+            source={require("@/assets/images/icon.png")}
+            style={[styles.avatar, { borderColor: theme.backgroundElement }]}
+            contentFit="cover"
+          />
+        </View>
+
+        <ThemedText type="title" style={styles.title}>
+          Hi, I&apos;m {profile.name}
+        </ThemedText>
+        <ThemedText type="subtitle" style={styles.subtitle}>
+          {profile.title}
+        </ThemedText>
+        <ThemedText type="small" themeColor="textSecondary" style={styles.tagline}>
+          {profile.tagline}
         </ThemedText>
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
+        <ThemedView style={styles.buttonRow}>
+          <Link href="/projects" asChild>
+            <Pressable style={({ pressed }) => [styles.button, pressed && styles.pressed]}>
+              <ThemedView type="backgroundSelected" style={styles.primaryButton}>
+                <ThemedText type="smallBold" themeColor="textInverse">
+                  View Projects
+                </ThemedText>
+              </ThemedView>
+            </Pressable>
+          </Link>
+          <Link href="/contact" asChild>
+            <Pressable style={({ pressed }) => [styles.button, pressed && styles.pressed]}>
+              <ThemedView
+                type="backgroundElement"
+                style={[styles.secondaryButton, { borderColor: theme.border }]}>
+                <ThemedText type="smallBold">Contact Me</ThemedText>
+              </ThemedView>
+            </Pressable>
+          </Link>
         </ThemedView>
-
-        {Platform.OS === "web" && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+      </PinkCard>
+    </ScreenLayout>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  scrollContent: {
+    flexGrow: 1,
     justifyContent: "center",
-    flexDirection: "row",
   },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
+  heroCard: {
     alignItems: "center",
     gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
+    paddingVertical: Spacing.five,
+    paddingHorizontal: Spacing.four,
+    marginTop: Spacing.four,
   },
-  heroSection: {
+  avatarWrapper: {
     alignItems: "center",
     justifyContent: "center",
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
+    width: 148,
+    height: 148,
+    marginBottom: Spacing.one,
+  },
+  avatarRing: {
+    position: "absolute",
+    width: 148,
+    height: 148,
+    borderRadius: 74,
+    borderWidth: 3,
+  },
+  avatar: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    borderWidth: 4,
   },
   title: {
     textAlign: "center",
+    fontSize: 38,
+    lineHeight: 44,
   },
-  code: {
-    textTransform: "uppercase",
+  subtitle: {
+    textAlign: "center",
+    fontSize: 20,
+    lineHeight: 28,
+    fontWeight: 600,
   },
-  stepContainer: {
+  tagline: {
+    textAlign: "center",
+    maxWidth: 440,
+    lineHeight: 24,
+  },
+  buttonRow: {
+    flexDirection: "row",
     gap: Spacing.three,
-    alignSelf: "stretch",
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+    flexWrap: "wrap",
+    justifyContent: "center",
+    marginTop: Spacing.two,
+  },
+  button: {
+    borderRadius: Radius.pill,
+  },
+  primaryButton: {
+    paddingVertical: Spacing.two,
+    paddingHorizontal: Spacing.four,
+    borderRadius: Radius.pill,
+  },
+  secondaryButton: {
+    paddingVertical: Spacing.two,
+    paddingHorizontal: Spacing.four,
+    borderRadius: Radius.pill,
+    borderWidth: 1.5,
+  },
+  pressed: {
+    opacity: 0.75,
+    transform: [{ scale: 0.98 }],
   },
 });

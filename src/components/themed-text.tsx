@@ -21,7 +21,7 @@ export function ThemedText({ style, type = 'default', themeColor, ...rest }: The
         type === 'smallBold' && styles.smallBold,
         type === 'subtitle' && styles.subtitle,
         type === 'link' && styles.link,
-        type === 'linkPrimary' && styles.linkPrimary,
+        type === 'linkPrimary' && [styles.linkPrimary, { color: theme.link }],
         type === 'code' && styles.code,
         style,
       ]}
@@ -33,41 +33,44 @@ export function ThemedText({ style, type = 'default', themeColor, ...rest }: The
 const styles = StyleSheet.create({
   small: {
     fontSize: 14,
-    lineHeight: 20,
+    lineHeight: 22,
     fontWeight: 500,
   },
   smallBold: {
     fontSize: 14,
-    lineHeight: 20,
+    lineHeight: 22,
     fontWeight: 700,
   },
   default: {
     fontSize: 16,
-    lineHeight: 24,
+    lineHeight: 26,
     fontWeight: 500,
   },
   title: {
     fontSize: 48,
-    fontWeight: 600,
+    fontWeight: 700,
     lineHeight: 52,
+    letterSpacing: -0.5,
   },
   subtitle: {
     fontSize: 32,
-    lineHeight: 44,
-    fontWeight: 600,
+    fontWeight: 700,
+    lineHeight: 40,
+    letterSpacing: -0.3,
   },
   link: {
     lineHeight: 30,
     fontSize: 14,
+    fontWeight: 600,
   },
   linkPrimary: {
     lineHeight: 30,
     fontSize: 14,
-    color: '#3c87f7',
+    fontWeight: 600,
   },
   code: {
-    fontFamily: Fonts.mono,
-    fontWeight: Platform.select({ android: 700 }) ?? 500,
+    fontFamily: Fonts.rounded,
+    fontWeight: Platform.select({ android: 700 }) ?? 600,
     fontSize: 12,
   },
 });
