@@ -48,7 +48,7 @@ export default function AboutScreen() {
         <ThemedText type="smallBold">{education.school}</ThemedText>
         <ThemedText type="small">{education.degree1}</ThemedText>
         {/* just added */}
-        <ThemedText type="smallBold">{education.mostRecent}</ThemedText>
+        <ThemedText type="smallBold">{education.mostRecentEdu}</ThemedText>
         <ThemedText type="small">{education.degree2}</ThemedText>
         <ThemedText type="small" themeColor="textSecondary">
           {education.period}

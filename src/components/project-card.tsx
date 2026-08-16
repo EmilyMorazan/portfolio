@@ -18,20 +18,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <PinkCard style={styles.card}>
-      {project.image ? (
-        <Image
-          source={project.image}
-          style={[styles.image, { borderColor: theme.border }]}
-          contentFit="cover"
-        />
-      ) : (
-        <ThemedView type="backgroundAccent" style={styles.imagePlaceholder}>
-          <ThemedText type="small" themeColor="textSecondary">
-            Screenshot coming soon
-          </ThemedText>
-        </ThemedView>
-      )}
-
       <ThemedText type="subtitle" style={styles.title}>
         {project.title}
       </ThemedText>
@@ -42,7 +28,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <View style={styles.tagRow}>
         {project.tech.map((item) => (
-          <ThemedView key={item} type="backgroundAccent" style={[styles.tag, { borderColor: theme.border }]}>
+          <ThemedView
+            key={item}
+            type="backgroundAccent"
+            style={[styles.tag, { borderColor: theme.border }]}
+          >
             <ThemedText type="code">{item}</ThemedText>
           </ThemedView>
         ))}
@@ -61,6 +51,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </ExternalLink>
           )}
         </View>
+      )}
+      {project.image ? (
+        <Image
+          source={project.image}
+          style={[styles.image, { borderColor: theme.border }]}
+          contentFit="cover"
+        />
+      ) : (
+        <ThemedView type="backgroundAccent" style={styles.imagePlaceholder}>
+          <ThemedText type="small" themeColor="textSecondary">
+            Screenshot coming soon
+          </ThemedText>
+        </ThemedView>
       )}
     </PinkCard>
   );
