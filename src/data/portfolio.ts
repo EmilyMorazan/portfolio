@@ -40,9 +40,9 @@ export type Project = {
   title: string;
   description: string;
   tech: string[];
-  image?: ImageSource;
   github?: string;
   demo?: string;
+  image?: ImageSource;
 };
 
 export const projects: Project[] = [
@@ -52,9 +52,9 @@ export const projects: Project[] = [
     description:
       "Built a web application that monitors real-time network activity — traffic volume, IP address details, and connection speed. Implemented a rule-based firewall to block suspicious connections and improve network security.",
     tech: ["Python", "Flask", "React", "SQLite"],
-    image: require("@/assets/images/firewall_image.png"),
     github: "https://github.com/EmilyMorazan/FirePy/tree/main/",
     demo: "https://your-demo-url.com",
+    image: require("@/assets/images/firewall_image.png"),
   },
   {
     id: "habit-tracker",
@@ -71,8 +71,21 @@ export const projects: Project[] = [
     description:
       "Developed a web application to teach and visualize data structures such as arrays, linked lists, stacks, and queues. Includes interactive examples and real-time feedback to enhance learning.",
     tech: ["JavaScript", "HTML", "CSS"],
-    image: require("@/assets/images/homePageDataStr.png"),
     github: "https://github.com/EmilyMorazan/DataStructures",
     demo: "https://data-structures-iota.vercel.app/",
+    image: require("@/assets/images/homePageDataStr.png"),
+  },
+
+  {
+    id: "tire-detector",
+    title: "Tire-Thread-Detection",
+    description:
+      "Developed a deep learning model to detect tire thread patterns and identify potential wear or damage. Utilized computer vision techniques for accurate and efficient analysis.",
+    // specific technologies used for this project:
+    tech: ["JavaScript (ES6+)", "HTML5", "CSS3", "React + JSX"],
+    //Tooling for better development experience: Used Vite for fast dev server and builds, npm for dependency management, and ESLint for code quality.
+    github: "https://github.com/EmilyMorazan/Tire_Tread_Detection/",
+    demo: "https://my-tire-project.vercel.app/",
+    image: require("@/assets/images/tireProjectHomePage.png"),
   },
 ];
