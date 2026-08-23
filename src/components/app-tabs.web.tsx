@@ -1,12 +1,12 @@
 import {
-  Tabs,
   TabList,
-  TabTrigger,
-  TabSlot,
-  TabTriggerSlotProps,
   TabListProps,
+  Tabs,
+  TabSlot,
+  TabTrigger,
+  TabTriggerSlotProps,
 } from "expo-router/ui";
-import { Pressable, View, StyleSheet } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 
 import { ThemedText } from "./themed-text";
 import { ThemedView } from "./themed-view";
@@ -32,6 +32,9 @@ export default function AppTabs() {
           <TabTrigger name="contact" href="/contact" asChild>
             <TabButton>Contact</TabButton>
           </TabTrigger>
+          <TabTrigger name="extracurriculars" href="/resume" asChild>
+            <TabButton>Extracurriculars</TabButton>
+          </TabTrigger>
         </CustomTabList>
       </TabList>
     </Tabs>
@@ -55,10 +58,12 @@ export function TabButton({
             borderColor: isFocused ? theme.backgroundSelected : theme.border,
           },
           isFocused && styles.tabButtonActive,
-        ]}>
+        ]}
+      >
         <ThemedText
           type="small"
-          themeColor={isFocused ? "textInverse" : "textSecondary"}>
+          themeColor={isFocused ? "textInverse" : "textSecondary"}
+        >
           {children}
         </ThemedText>
       </ThemedView>
@@ -77,7 +82,8 @@ export function CustomTabList(props: TabListProps) {
           styles.innerContainer,
           Shadows.nav,
           { borderColor: theme.border },
-        ]}>
+        ]}
+      >
         <ThemedText type="smallBold" themeColor="text" style={styles.brandText}>
           Emily&apos;s Portfolio
         </ThemedText>
