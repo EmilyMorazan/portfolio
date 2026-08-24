@@ -45,6 +45,30 @@ export type Project = {
   image?: ImageSource;
 };
 
+export type Extracurricular = {
+  id: string;
+  title: string;
+  description: string;
+  image: ImageSource;
+};
+
+export const extracurriculars: Extracurricular[] = [
+  {
+    id: "math-involvement",
+    title: "Experience with Math tutoring and Campus Involvement",
+    description:
+      "Add a short description of the club, organization, or activity here.",
+    image: require("@/assets/images/tabIcons/mathTeaching.jpg"),
+  },
+  {
+    id: "community-events",
+    title: "Community Events",
+    description:
+      "Add a short description of the event, volunteer work, or leadership role here.",
+    image: require("@/assets/images/tutorial-web.png"),
+  },
+];
+
 export const projects: Project[] = [
   {
     id: "network-analyzer",

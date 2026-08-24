@@ -32,7 +32,7 @@ export default function AppTabs() {
           <TabTrigger name="contact" href="/contact" asChild>
             <TabButton>Contact</TabButton>
           </TabTrigger>
-          <TabTrigger name="extracurriculars" href="/resume" asChild>
+          <TabTrigger name="extracurriculars" href="/extracurriculars" asChild>
             <TabButton>Extracurriculars</TabButton>
           </TabTrigger>
         </CustomTabList>
