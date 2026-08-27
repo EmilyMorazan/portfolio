@@ -70,16 +70,16 @@ export const extracurriculars: Extracurricular[] = [
 ];
 
 export const projects: Project[] = [
-  {
-    id: "network-analyzer",
-    title: "Network Traffic Analyzer & Firewall",
-    description:
-      "Built a web application that monitors real-time network activity — traffic volume, IP address details, and connection speed. Implemented a rule-based firewall to block suspicious connections and improve network security.",
-    tech: ["Python", "Flask", "React", "SQLite"],
-    github: "https://github.com/EmilyMorazan/FirePy/tree/main/",
-    demo: "https://your-demo-url.com",
-    image: require("@/assets/images/firewall_image.png"),
-  },
+  // {
+  //   id: "network-analyzer",
+  //   title: "Network Traffic Analyzer & Firewall",
+  //   description:
+  //     "Built a web application that monitors real-time network activity — traffic volume, IP address details, and connection speed. Implemented a rule-based firewall to block suspicious connections and improve network security.",
+  //   tech: ["Python", "Flask", "React", "SQLite"],
+  //   github: "https://github.com/EmilyMorazan/FirePy/tree/main/",
+  //   demo: "https://your-demo-url.com",
+  //   image: require("@/assets/images/firewall_image.png"),
+  // },
   {
     id: "habit-tracker",
     title: "Gamified Habit Tracker for ADHD",
