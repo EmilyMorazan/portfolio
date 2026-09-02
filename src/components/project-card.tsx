@@ -1,4 +1,5 @@
 import { Image } from "expo-image";
+import { useVideoPlayer, VideoView } from "expo-video";
 import { StyleSheet, View } from "react-native";
 
 import { ExternalLink } from "@/components/external-link";
@@ -52,7 +53,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
           )}
         </View>
       )}
-      {project.image ? (
+      {/* 
+      added: */}
+      {project.video ? (
+        <>
+          <ProjectVideo source={project.video} borderColor={theme.border} />
+          {project.images?.map((image, index) => (
+            <Image
+              key={`${project.id}-image-${index}`}
+              source={image}
+              style={[styles.galleryImage, { borderColor: theme.border }]}
+              contentFit="cover"
+            />
+          ))}
+        </>
+      ) : project.image ? (
         <Image
           source={project.image}
           style={[styles.image, { borderColor: theme.border }]}
@@ -69,6 +84,29 @@ export function ProjectCard({ project }: ProjectCardProps) {
   );
 }
 
+// added As well
+
+function ProjectVideo({
+  source,
+  borderColor,
+}: {
+  source: string | number;
+  borderColor: string;
+}) {
+  const player = useVideoPlayer(source, (videoPlayer) => {
+    videoPlayer.loop = true;
+  });
+
+  return (
+    <VideoView
+      player={player}
+      style={[styles.image, { borderColor }]}
+      nativeControls
+      contentFit="contain"
+    />
+  );
+}
+
 const styles = StyleSheet.create({
   card: {
     gap: Spacing.three,
@@ -76,6 +114,12 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     aspectRatio: 16 / 9,
+    borderRadius: Radius.md,
+    borderWidth: 1.5,
+  },
+  galleryImage: {
+    width: "100%",
+    aspectRatio: 4 / 5,
     borderRadius: Radius.md,
     borderWidth: 1.5,
   },

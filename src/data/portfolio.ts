@@ -43,6 +43,8 @@ export type Project = {
   github?: string;
   demo?: string;
   image?: ImageSource;
+  images?: ImageSource[];
+  video?: string | number;
 };
 
 export type Extracurricular = {
@@ -118,7 +120,11 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/EmilyMorazan/SignalFlow2",
     demo: "https://signal-flow4.vercel.app/",
-    //   image : coming soon
+    video: require("@/assets/images/videoForSignFlow.mp4"),
+    images: [
+      require("@/assets/images/codeforaCause.jpeg"),
+      require("@/assets/images/signFlowPresentation.jpeg"),
+    ],
   },
 
   {
