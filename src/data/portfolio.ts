@@ -101,6 +101,27 @@ export const projects: Project[] = [
   },
 
   {
+    id: "signal-flow",
+    title: "SignalFlow",
+    description:
+      "Built a web application designed to improve accessibility for people with disabilities, with a focus on supporting deaf and hard-of-hearing users",
+    tech: [
+      "C++",
+      "CMake",
+      "Dart",
+      "JavaScript",
+      "Swift",
+      "C",
+      "Flask",
+      "React",
+      "SQLite",
+    ],
+    github: "https://github.com/EmilyMorazan/SignalFlow2",
+    demo: "https://signal-flow4.vercel.app/",
+    //   image : coming soon
+  },
+
+  {
     id: "tire-detector",
     title: "Tire-Thread-Detection",
     description:
