@@ -6,7 +6,7 @@ import { ExternalLink } from "@/components/external-link";
 import { PinkCard } from "@/components/pink-card";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-import { Project } from "@/data/portfolio";
+import { Extracurricular, Project } from "@/data/portfolio";
 import { Radius, Spacing } from "@/constants/theme";
 import { useTheme } from "@/hooks/use-theme";
 
@@ -119,15 +119,13 @@ const styles = StyleSheet.create({
   },
   galleryImage: {
     width: "100%",
-    height: 200,
-    aspectRatio: 4 / 5,
+    height: 220,
     borderRadius: Radius.md,
     borderWidth: 1.5,
   },
   imagePlaceholder: {
     width: "100%",
-    height: "200px",
-    aspectRatio: 20 / 9,
+    height: 220,
     borderRadius: Radius.md,
     alignItems: "center",
     justifyContent: "center",
@@ -155,3 +153,28 @@ const styles = StyleSheet.create({
     gap: Spacing.four,
   },
 });
+
+// export const extracurriculars: Extracurricular[] = [
+//   {
+//     id: "math-involvement",
+//     title: "Experience with Math tutoring and Campus Involvement",
+//     description:
+//       "Helped hundreds of students improve their math skills through tutoring and mentoring",
+//     images: [
+//       require("@/assets/images/tabIcons/mathTeaching.jpg"),
+//       require("@/assets/images/tabIcons/mathExperience.jpg"),
+//       require("@/assets/images/tabIcons/tutoringPictures.png"),
+//     ],
+//   },
+//   {
+//     id: "math-involvement",
+//     title: "Experience with Math tutoring and Campus Involvement",
+//     description:
+//       "Helped hundreds of students improve their math skills through tutoring and mentoring",
+//     images: [
+//       require("@/assets/images/tabIcons/mathTeaching.jpg"),
+//       require("@/assets/images/tabIcons/mathExperience.jpg"),
+//       require("@/assets/images/tabIcons/tutoringPictures.png"),
+//     ],
+//   },
+// ];

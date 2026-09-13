@@ -4,7 +4,7 @@ export const profile = {
   name: "Emily",
   title: "Bachelor's in Computer Science",
   tagline:
-    "I build software that solves real problems — from network security tools to user-friendly mobile apps.",
+    "I build software that solves real problems — from network security tools to user-friendly web/mobile apps.",
   bio: "I studied Computer Science at California State University, Northridge, passionate about full-stack development, cybersecurity, and building tools that make technology more accessible.",
   email: "emily.morazan7@gmail.com",
   github: "https://github.com/EmilyMorazan",
@@ -51,7 +51,8 @@ export type Extracurricular = {
   id: string;
   title: string;
   description: string;
-  image: ImageSource;
+  image?: ImageSource;
+  images?: ImageSource[];
 };
 
 export const extracurriculars: Extracurricular[] = [
@@ -59,17 +60,28 @@ export const extracurriculars: Extracurricular[] = [
     id: "math-involvement",
     title: "Experience with Math tutoring and Campus Involvement",
     description:
-      "Add a short description of the club, organization, or activity here.",
-    image: require("@/assets/images/tabIcons/mathTeaching.jpg"),
-  },
-  {
-    id: "community-events",
-    title: "Community Events",
-    description:
-      "Add a short description of the event, volunteer work, or leadership role here.",
-    image: require("@/assets/images/tutorial-web.png"),
+      "Helped hundreds of students improve their math skills through tutoring and mentoring",
+    images: [
+      require("@/assets/images/tabIcons/mathTeaching.jpg"),
+      require("@/assets/images/tabIcons/mathExperience.jpg"),
+      require("@/assets/images/tabIcons/tutoringPictures.png"),
+    ],
   },
 ];
+// {
+//   id: "math-involvement2",
+//   title: "Math Tutoring and Campus Involvement",
+
+// }
+
+//   {
+//     id: "community-events",
+//     title: "Community Events",
+//     description:
+//       "Add a short description of the event, volunteer work, or leadership role here.",
+//     image: require("@/assets/images/tutorial-web.png"),
+//   },
+// ];
 
 export const projects: Project[] = [
   {
@@ -83,6 +95,7 @@ export const projects: Project[] = [
     image: require("@/assets/images/firewall_image.png"),
   },
 
+  //comming soon...
   // {
   //   id: "habit-tracker",
   //   title: "Gamified Habit Tracker for ADHD",

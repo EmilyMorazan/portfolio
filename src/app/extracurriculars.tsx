@@ -19,21 +19,27 @@ export default function ExtracurricularsScreen() {
         subtitle="Activities, leadership, and moments outside the classroom."
       />
 
-      {extracurriculars.map((item) => (
-        <PinkCard key={item.id} style={styles.card}>
-          <Image
-            source={item.image}
-            style={[styles.image, { borderColor: theme.border }]}
-            contentFit="cover"
-          />
-          <ThemedText type="subtitle" style={styles.title}>
-            {item.title}
-          </ThemedText>
-          <ThemedText type="small" style={styles.description}>
-            {item.description}
-          </ThemedText>
-        </PinkCard>
-      ))}
+      {extracurriculars.map((item) => {
+        const primaryImage = item.image ?? item.images?.[0];
+
+        return (
+          <PinkCard key={item.id} style={styles.card}>
+            {primaryImage ? (
+              <Image
+                source={primaryImage}
+                style={[styles.image, { borderColor: theme.border }]}
+                contentFit="cover"
+              />
+            ) : null}
+            <ThemedText type="subtitle" style={styles.title}>
+              {item.title}
+            </ThemedText>
+            <ThemedText type="small" style={styles.description}>
+              {item.description}
+            </ThemedText>
+          </PinkCard>
+        );
+      })}
     </ScreenLayout>
   );
 }
