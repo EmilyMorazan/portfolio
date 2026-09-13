@@ -119,13 +119,15 @@ const styles = StyleSheet.create({
   },
   galleryImage: {
     width: "100%",
+    height: 200,
     aspectRatio: 4 / 5,
     borderRadius: Radius.md,
     borderWidth: 1.5,
   },
   imagePlaceholder: {
     width: "100%",
-    aspectRatio: 16 / 9,
+    height: "200px",
+    aspectRatio: 20 / 9,
     borderRadius: Radius.md,
     alignItems: "center",
     justifyContent: "center",

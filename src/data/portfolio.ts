@@ -72,24 +72,25 @@ export const extracurriculars: Extracurricular[] = [
 ];
 
 export const projects: Project[] = [
-  // {
-  //   id: "network-analyzer",
-  //   title: "Network Traffic Analyzer & Firewall",
-  //   description:
-  //     "Built a web application that monitors real-time network activity — traffic volume, IP address details, and connection speed. Implemented a rule-based firewall to block suspicious connections and improve network security.",
-  //   tech: ["Python", "Flask", "React", "SQLite"],
-  //   github: "https://github.com/EmilyMorazan/FirePy/tree/main/",
-  //   demo: "https://your-demo-url.com",
-  //   image: require("@/assets/images/firewall_image.png"),
-  // },
   {
-    id: "habit-tracker",
-    title: "Gamified Habit Tracker for ADHD",
+    id: "network-analyzer",
+    title: "Network Traffic Analyzer & Firewall",
     description:
-      "Designed a habit tracker with game-like rewards, challenges, and progress tracking to help users with ADHD stay motivated. Features personalized reminders and a clean, distraction-free interface.",
-    tech: ["React Native", "TypeScript", "Expo"],
-    github: "https://github.com/yourusername/habit-tracker",
+      "Built a web application that monitors real-time network activity — traffic volume, IP address details, and connection speed. Implemented a rule-based firewall to block suspicious connections and improve network security.",
+    tech: ["Python", "Flask", "React", "SQLite"],
+    github: "https://github.com/EmilyMorazan/FirePy",
+    demo: "https://fire-py-emi.vercel.app/",
+    image: require("@/assets/images/firewall_image.png"),
   },
+
+  // {
+  //   id: "habit-tracker",
+  //   title: "Gamified Habit Tracker for ADHD",
+  //   description:
+  //     "Designed a habit tracker with game-like rewards, challenges, and progress tracking to help users with ADHD stay motivated. Features personalized reminders and a clean, distraction-free interface.",
+  //   tech: ["React Native", "TypeScript", "Expo"],
+  //   github: "https://github.com/yourusername/habit-tracker",
+  // },
 
   {
     id: "data-structures",
