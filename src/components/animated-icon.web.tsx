@@ -1,12 +1,22 @@
 import { Image } from 'expo-image';
+import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import Animated, { Keyframe, Easing } from 'react-native-reanimated';
+import Animated, { Easing, FadeOut, Keyframe } from 'react-native-reanimated';
 
 import classes from './animated-icon.module.css';
 const DURATION = 300;
 
 export function AnimatedSplashOverlay() {
-  return null;
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(false), 650);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!visible) return null;
+
+  return <Animated.View exiting={FadeOut.duration(450)} style={styles.backgroundSolidColor} />;
 }
 
 const keyframe = new Keyframe({
@@ -104,5 +114,10 @@ const styles = StyleSheet.create({
     width: 128,
     height: 128,
     position: 'absolute',
+  },
+  backgroundSolidColor: {
+    ...StyleSheet.absoluteFill,
+    backgroundColor: '#FFF5FA',
+    zIndex: 1000,
   },
 });

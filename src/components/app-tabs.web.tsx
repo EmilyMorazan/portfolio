@@ -6,7 +6,8 @@ import {
   TabTrigger,
   TabTriggerSlotProps,
 } from "expo-router/ui";
-import { Pressable, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
 import { ThemedText } from "./themed-text";
 import { ThemedView } from "./themed-view";
@@ -75,7 +76,11 @@ export function CustomTabList(props: TabListProps) {
   const theme = useTheme();
 
   return (
-    <View {...props} style={styles.tabListContainer}>
+    <Animated.View
+      {...props}
+      entering={FadeInDown.duration(650).springify().damping(20)}
+      style={styles.tabListContainer}
+    >
       <ThemedView
         type="backgroundElement"
         style={[
@@ -89,7 +94,7 @@ export function CustomTabList(props: TabListProps) {
         </ThemedText>
         {props.children}
       </ThemedView>
-    </View>
+    </Animated.View>
   );
 }
 

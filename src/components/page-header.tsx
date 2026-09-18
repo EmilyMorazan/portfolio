@@ -1,7 +1,10 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import Animated, { FadeInDown } from 'react-native-reanimated';
 
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
+
+const AnimatedView = Animated.View;
 
 type PageHeaderProps = {
   title: string;
@@ -10,7 +13,7 @@ type PageHeaderProps = {
 
 export function PageHeader({ title, subtitle }: PageHeaderProps) {
   return (
-    <View style={styles.header}>
+    <AnimatedView entering={FadeInDown.duration(460).springify().damping(20)} style={styles.header}>
       <ThemedText type="title" style={styles.title}>
         {title}
       </ThemedText>
@@ -19,7 +22,7 @@ export function PageHeader({ title, subtitle }: PageHeaderProps) {
           {subtitle}
         </ThemedText>
       )}
-    </View>
+    </AnimatedView>
   );
 }
 
