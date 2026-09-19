@@ -1,5 +1,6 @@
-import { Image, type ImageSource } from 'expo-image';
-import { StyleSheet } from 'react-native';
+import { Image, type ImageSource } from "expo-image";
+import { useEffect } from "react";
+import { type ImageStyle, type ViewStyle } from "react-native";
 import Animated, {
   Easing,
   interpolate,
@@ -8,9 +9,9 @@ import Animated, {
   withRepeat,
   withSequence,
   withTiming,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from "@/hooks/use-theme";
 
 type ThreeDPortraitProps = {
   source: ImageSource;
@@ -21,20 +22,27 @@ export function ThreeDPortrait({ source }: ThreeDPortraitProps) {
   const movement = useSharedValue(0);
   const orbit = useSharedValue(0);
 
-  movement.value = withRepeat(
-    withSequence(
-      withTiming(1, { duration: 2600, easing: Easing.inOut(Easing.sin) }),
-      withTiming(0, { duration: 2600, easing: Easing.inOut(Easing.sin) }),
-    ),
-    -1,
-    false,
-  );
+  useEffect(() => {
+    movement.value = withRepeat(
+      withSequence(
+        withTiming(1, { duration: 2600, easing: Easing.inOut(Easing.sin) }),
+        withTiming(0, { duration: 2600, easing: Easing.inOut(Easing.sin) }),
+      ),
+      -1,
+      false,
+    );
 
-  orbit.value = withRepeat(
-    withTiming(1, { duration: 12000, easing: Easing.linear }),
-    -1,
-    false,
-  );
+    orbit.value = withRepeat(
+      withTiming(1, { duration: 12000, easing: Easing.linear }),
+      -1,
+      false,
+    );
+
+    return () => {
+      movement.value = 0;
+      orbit.value = 0;
+    };
+  }, [movement, orbit]);
 
   const stageStyle = useAnimatedStyle(() => ({
     transform: [
@@ -48,7 +56,7 @@ export function ThreeDPortrait({ source }: ThreeDPortraitProps) {
   const ringStyle = useAnimatedStyle(() => ({
     transform: [
       { perspective: 900 },
-      { rotateX: '62deg' },
+      { rotateX: "62deg" },
       { rotateZ: `${interpolate(orbit.value, [0, 1], [0, 360])}deg` },
     ],
   }));
@@ -63,11 +71,7 @@ export function ThreeDPortrait({ source }: ThreeDPortraitProps) {
         ]}
       />
       <Animated.View
-        style={[
-          styles.orbitAccent,
-          ringStyle,
-          { borderColor: theme.border },
-        ]}
+        style={[styles.orbitAccent, ringStyle, { borderColor: theme.border }]}
       />
       <Animated.View
         style={[
@@ -84,15 +88,15 @@ export function ThreeDPortrait({ source }: ThreeDPortraitProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = {
   stage: {
     width: 172,
     height: 172,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   orbit: {
-    position: 'absolute',
+    position: "absolute",
     width: 168,
     height: 72,
     borderWidth: 2,
@@ -100,7 +104,7 @@ const styles = StyleSheet.create({
     opacity: 0.9,
   },
   orbitAccent: {
-    position: 'absolute',
+    position: "absolute",
     width: 148,
     height: 62,
     borderWidth: 1,
@@ -113,11 +117,12 @@ const styles = StyleSheet.create({
     borderRadius: 62,
     borderWidth: 5,
     padding: 4,
-    transform: [{ translateZ: 18 }],
   },
   portrait: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
     borderRadius: 58,
   },
-});
+} satisfies Record<"stage" | "orbit" | "orbitAccent" | "portraitFrame", ViewStyle> & {
+  portrait: ImageStyle;
+};

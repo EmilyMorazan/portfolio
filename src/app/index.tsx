@@ -24,14 +24,26 @@ export default function HomeScreen() {
         <ThemedText type="subtitle" style={styles.subtitle}>
           {profile.title}
         </ThemedText>
-        <ThemedText type="small" themeColor="textSecondary" style={styles.tagline}>
+        <ThemedText
+          type="small"
+          themeColor="textSecondary"
+          style={styles.tagline}
+        >
           {profile.tagline}
         </ThemedText>
 
         <ThemedView style={styles.buttonRow}>
           <Link href="/projects" asChild>
-            <Pressable style={({ pressed }) => [styles.button, pressed && styles.pressed]}>
-              <ThemedView type="backgroundSelected" style={styles.primaryButton}>
+            <Pressable
+              style={({ pressed }) => [
+                styles.button,
+                pressed && styles.pressed,
+              ]}
+            >
+              <ThemedView
+                type="backgroundSelected"
+                style={styles.primaryButton}
+              >
                 <ThemedText type="smallBold" themeColor="textInverse">
                   View Projects
                 </ThemedText>
@@ -39,10 +51,16 @@ export default function HomeScreen() {
             </Pressable>
           </Link>
           <Link href="/contact" asChild>
-            <Pressable style={({ pressed }) => [styles.button, pressed && styles.pressed]}>
+            <Pressable
+              style={({ pressed }) => [
+                styles.button,
+                pressed && styles.pressed,
+              ]}
+            >
               <ThemedView
                 type="backgroundElement"
-                style={[styles.secondaryButton, { borderColor: theme.border }]}>
+                style={[styles.secondaryButton, { borderColor: theme.border }]}
+              >
                 <ThemedText type="smallBold">Contact Me</ThemedText>
               </ThemedView>
             </Pressable>

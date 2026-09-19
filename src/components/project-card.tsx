@@ -6,7 +6,7 @@ import { ExternalLink } from "@/components/external-link";
 import { PinkCard } from "@/components/pink-card";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-import { Extracurricular, Project } from "@/data/portfolio";
+import { Project } from "@/data/portfolio";
 import { Radius, Spacing } from "@/constants/theme";
 import { useTheme } from "@/hooks/use-theme";
 
@@ -63,7 +63,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               key={`${project.id}-image-${index}`}
               source={image}
               style={[styles.galleryImage, { borderColor: theme.border }]}
-              contentFit="cover"
+              contentFit="contain"
             />
           ))}
         </>
@@ -71,7 +71,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <Image
           source={project.image}
           style={[styles.image, { borderColor: theme.border }]}
-          contentFit="cover"
+          contentFit="contain"
         />
       ) : (
         <ThemedView type="backgroundAccent" style={styles.imagePlaceholder}>
@@ -116,12 +116,14 @@ const styles = StyleSheet.create({
     aspectRatio: 16 / 9,
     borderRadius: Radius.md,
     borderWidth: 1.5,
+    backgroundColor: "#FFF5FA",
   },
   galleryImage: {
     width: "100%",
-    height: 220,
+    aspectRatio: 16 / 9,
     borderRadius: Radius.md,
     borderWidth: 1.5,
+    backgroundColor: "#FFF5FA",
   },
   imagePlaceholder: {
     width: "100%",
