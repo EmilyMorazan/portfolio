@@ -111,27 +111,7 @@ const styles = StyleSheet.create({
   card: {
     gap: Spacing.three,
   },
-  image: {
-    width: "100%",
-    aspectRatio: 16 / 9,
-    borderRadius: Radius.md,
-    borderWidth: 1.5,
-    backgroundColor: "#FFF5FA",
-  },
-  galleryImage: {
-    width: "100%",
-    aspectRatio: 16 / 9,
-    borderRadius: Radius.md,
-    borderWidth: 1.5,
-    backgroundColor: "#FFF5FA",
-  },
-  imagePlaceholder: {
-    width: "100%",
-    height: 220,
-    borderRadius: Radius.md,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+
   title: {
     fontSize: 24,
     lineHeight: 32,
@@ -153,6 +133,28 @@ const styles = StyleSheet.create({
   linkRow: {
     flexDirection: "row",
     gap: Spacing.four,
+  },
+
+  image: {
+    width: "100%",
+    aspectRatio: 16 / 9,
+    borderRadius: Radius.md,
+    borderWidth: 1.5,
+    backgroundColor: "#FFF5FA",
+  },
+  galleryImage: {
+    width: "100%",
+    aspectRatio: 16 / 9,
+    borderRadius: Radius.md,
+    borderWidth: 1.5,
+    backgroundColor: "#FFF5FA",
+  },
+  imagePlaceholder: {
+    width: "100%",
+    height: 220,
+    borderRadius: Radius.md,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 

@@ -20,17 +20,18 @@ export default function ExtracurricularsScreen() {
       />
 
       {extracurriculars.map((item) => {
-        const primaryImage = item.image ?? item.images?.[0];
+        const images = item.images ?? (item.image ? [item.image] : []);
 
         return (
           <PinkCard key={item.id} style={styles.card}>
-            {primaryImage ? (
+            {images.map((image, index) => (
               <Image
-                source={primaryImage}
+                key={`${item.id}-image-${index}`}
+                source={image}
                 style={[styles.image, { borderColor: theme.border }]}
-                contentFit="cover"
+                contentFit="contain"
               />
-            ) : null}
+            ))}
             <ThemedText type="subtitle" style={styles.title}>
               {item.title}
             </ThemedText>
@@ -48,17 +49,28 @@ const styles = StyleSheet.create({
   card: {
     gap: Spacing.three,
   },
-  image: {
-    width: "100%",
-    aspectRatio: 16 / 9,
-    borderRadius: Radius.md,
-    borderWidth: 1.5,
-  },
+  // image: {
+  //   width: "100%",
+  //   aspectRatio: 16 / 9,
+  //   borderRadius: Radius.md,
+  //   borderWidth: 1.5,
+  //   // backgroundColor: "#FFF5FA",
+  //   backgroundColor: "#F9B7D8",
+  // },
   title: {
     fontSize: 24,
     lineHeight: 32,
   },
   description: {
     lineHeight: 24,
+  },
+
+  image: {
+    width: "100%",
+    aspectRatio: 16 / 9,
+    borderRadius: Radius.md,
+    borderWidth: 1.5,
+    // backgroundColor: "#FFF5FA",
+    backgroundColor: "#F9B7D8",
   },
 });

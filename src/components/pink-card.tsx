@@ -1,8 +1,8 @@
-import { StyleSheet, type ViewProps } from 'react-native';
-import Animated, { FadeInDown } from 'react-native-reanimated';
+import { StyleSheet, type ViewProps } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
-import { Radius, Shadows } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { Radius, Shadows } from "@/constants/theme";
+import { useTheme } from "@/hooks/use-theme";
 
 type PinkCardProps = ViewProps & {
   soft?: boolean;
@@ -23,7 +23,8 @@ export function PinkCard({ style, soft, children, ...rest }: PinkCardProps) {
         },
         style,
       ]}
-      {...rest}>
+      {...rest}
+    >
       {children}
     </Animated.View>
   );

@@ -123,6 +123,9 @@ const styles = {
     height: "100%",
     borderRadius: 58,
   },
-} satisfies Record<"stage" | "orbit" | "orbitAccent" | "portraitFrame", ViewStyle> & {
+} satisfies Record<
+  "stage" | "orbit" | "orbitAccent" | "portraitFrame",
+  ViewStyle
+> & {
   portrait: ImageStyle;
 };
