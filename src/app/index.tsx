@@ -1,4 +1,3 @@
-import { Image } from "expo-image";
 import { Link } from "expo-router";
 import { Pressable, StyleSheet, View } from "react-native";
 
@@ -6,6 +5,7 @@ import { PinkCard } from "@/components/pink-card";
 import { ScreenLayout } from "@/components/screen-layout";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
+import { ThreeDPortrait } from "@/components/three-d-portrait";
 import { profile } from "@/data/portfolio";
 import { Radius, Spacing } from "@/constants/theme";
 import { useTheme } from "@/hooks/use-theme";
@@ -16,17 +16,7 @@ export default function HomeScreen() {
   return (
     <ScreenLayout contentContainerStyle={styles.scrollContent}>
       <PinkCard style={styles.heroCard}>
-        <View style={styles.avatarWrapper}>
-          <ThemedView
-            type="backgroundAccent"
-            style={[styles.avatarRing, { borderColor: theme.backgroundSelected }]}
-          />
-          <Image
-            source={profile.photo}
-            style={[styles.avatar, { borderColor: theme.backgroundElement }]}
-            contentFit="cover"
-          />
-        </View>
+        <ThreeDPortrait source={profile.photo} />
 
         <ThemedText type="title" style={styles.title}>
           Hi, I&apos;m {profile.name}
@@ -74,26 +64,6 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.five,
     paddingHorizontal: Spacing.four,
     marginTop: Spacing.four,
-  },
-  avatarWrapper: {
-    alignItems: "center",
-    justifyContent: "center",
-    width: 148,
-    height: 148,
-    marginBottom: Spacing.one,
-  },
-  avatarRing: {
-    position: "absolute",
-    width: 148,
-    height: 148,
-    borderRadius: 74,
-    borderWidth: 3,
-  },
-  avatar: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    borderWidth: 4,
   },
   title: {
     textAlign: "center",
