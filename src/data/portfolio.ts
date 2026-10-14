@@ -11,7 +11,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/emily-morazan-142bbb2a1/",
   // Replace public/pinkResume.pdf anytime to update the download link.
   resumeUrl: "/pinkResume.pdf",
-  photo: require("@/assets/images/profile.png"),
+  photo: require("@/assets/images/profile.jpeg"),
 };
 
 export const skills = [
